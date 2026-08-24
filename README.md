@@ -24,6 +24,7 @@ exercise             .  .  #  .  .  .  .  0
 | `list` | Show all habits with current/longest streaks |
 | `streak <name>` | Show one habit's streak detail |
 | `report` | 7-day grid of all habits |
+| `today` | Habits not yet logged today |
 
 ## Data
 

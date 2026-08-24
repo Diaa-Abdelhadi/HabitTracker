@@ -22,6 +22,7 @@ try
         "list" => List(),
         "streak" => Streak(args),
         "report" => Report(),
+        "today" => Today(),
         _ => Unknown(args[0]),
     };
 }
@@ -112,6 +113,38 @@ int Report()
     return 0;
 }
 
+int Today()
+{
+    if (repository.Habits.Count == 0)
+    {
+        Console.WriteLine("no habits yet — add one with: habittracker add <name>");
+        return 0;
+    }
+
+    var done = repository.Habits
+        .Where(h => repository.EntriesFor(h.Name).Any(e => e.Date == today))
+        .Select(h => h.Name)
+        .ToList();
+    var pending = repository.Habits
+        .Select(h => h.Name)
+        .Except(done, StringComparer.OrdinalIgnoreCase)
+        .ToList();
+
+    if (pending.Count == 0)
+    {
+        Console.WriteLine("everything logged for today");
+        return 0;
+    }
+
+    Console.WriteLine("still pending today:");
+    foreach (var name in pending)
+    {
+        Console.WriteLine($"  - {name}");
+    }
+
+    return 0;
+}
+
 int Unknown(string command)
 {
     Console.Error.WriteLine($"unknown command '{command}'");
@@ -130,5 +163,6 @@ void PrintUsage()
           list                       show all habits with current/longest streaks
           streak <name>              show one habit's streak detail
           report                     7-day grid of all habits
+          today                      habits not yet logged today
         """);
 }
