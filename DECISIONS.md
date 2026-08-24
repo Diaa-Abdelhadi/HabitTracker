@@ -32,6 +32,23 @@ yet logged today) added on a branch and merged through a real PR — the same
 two-step shape as WordTally, so the tool would have a second, smaller
 change to analyze.
 
+## What the project could do after each step
+
+**After the initial implementation:**
+- Add a new habit — `add <name>`
+- Log a completion for today or a specific date — `log <name> [yyyy-MM-dd]`
+- See every habit's current and longest streak at a glance — `list`
+- See one habit's streak detail — `streak <name>`
+- See a 7-day grid of completions across all habits — `report`
+- Everything survives a restart — persisted to a local JSON file
+- **Could not yet do**: answer "what do I still need to do today" without
+  reading the full `report` grid and checking today's column by eye
+
+**After the `today` command was added:**
+- Everything above, plus: see exactly which habits are still unlogged for
+  today in one line each — `today` — closing the gap noted above directly,
+  rather than leaving it to be inferred from `report`.
+
 ## Why this, and not the alternatives
 
 | Choice | Alternatives considered | Why this one won |
