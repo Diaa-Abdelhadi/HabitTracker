@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/HabitTracker.Cli/HabitTracker.Cli.csproj" />
+    <Project Path="src/HabitTracker.Core/HabitTracker.Core.csproj" />
+    <Project Path="src/HabitTracker.Storage/HabitTracker.Storage.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/HabitTracker.Tests/HabitTracker.Tests.csproj" />
+  </Folder>
+</Solution>
